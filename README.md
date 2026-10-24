@@ -1,148 +1,138 @@
-# Solve-to-Scroll 🚀
-> *Earn your scroll.*
+# ⚡ Solve-to-Scroll
+<p align="center">
+  <strong>Earn your scroll. Transform doomscrolling into daily algorithmic mastery.</strong>
+</p>
 
-**Solve-to-Scroll** is a premium Chrome extension (Manifest V3) that blocks distracting websites (Instagram, YouTube, Reddit, X/Twitter, etc.) and requires you to answer short, high-yield Data Structures & Algorithms (DSA) concept questions before unlocking access for a timed session.
-
-100% offline. No accounts, no network calls, zero tracking.
-
----
-
-## ⚡ Key Highlights
-- **Tactile, Aesthetic UI**: Deep dark canvas (`#0A0A12`), glowing purple-pink-amber gradient borders, ambient drifting glow, soft noise texture, and 60fps spring feedback.
-- **6 Diverse Question Formats**:
-  1. `mcq`: Multiple choice concept questions.
-  2. `code_output`: Code snippets with line numbers & syntax highlighting (C++, Python, Java, JS).
-  3. `spot_bug`: Locate algorithmic and boundary bugs.
-  4. `complexity`: Big-O time and space complexity evaluations.
-  5. `visual_mcq`: Graphic diagram-based questions (LCA in trees, connected components).
-  6. `hotspot`: Interactive SVG diagrams where you tap the flawed node or broken pointer.
-- **Adaptive Difficulty Engine**:
-  - Baseline level (Beginner / Intermediate / Expert).
-  - Real-time difficulty tuning per topic (2 correct in a row levels up; 1 wrong levels down).
-  - Topic weights prioritize weaker areas.
-  - Spaced repetition queue re-surfaces missed questions until mastered.
-- **DeclarativeNetRequest MV3 Blocking**:
-  - Main-frame dynamic redirect rules redirect blocked sites to `blocked.html`.
-  - Timer alarms (`chrome.alarms`) re-lock sites and redirect active tabs when the timer expires.
-  - Full wake-reconciliation handles browser restarts and service worker sleep seamlessly.
+<p align="center">
+  <img src="https://img.shields.io/badge/Manifest-V3-7C5CFF?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Manifest V3" />
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/React_18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React 18" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Privacy-100%25_Offline-3DDC97?style=for-the-badge&logo=shield&logoColor=white" alt="Offline" />
+</p>
 
 ---
 
-## 🛠️ Project Structure
+## 💡 The Premise
+
+Every time you open **Instagram**, **YouTube**, **X/Twitter**, or **Reddit**, you lose 30+ minutes down an algorithmic rabbit hole.
+
+**Solve-to-Scroll breaks the dopamine loop:**
+Instead of brute-force willpower, it places a lightweight, beautifully designed gatekeeper in front of distracting sites. To unlock **10 minutes** of browsing, you must solve **1 to 3 quick DSA concept questions**.
+
+> ⏱️ **Each unlock takes ~20 seconds.** You learn something new, protect your focus, and build an unbreakable daily streak.
+
+---
+
+## 🔄 The 3-Step Core Loop
+
 ```
-solve-to-scroll/
-├── dist/                     # Production build ready to load in Chrome
-│   ├── manifest.json
-│   ├── background.js
-│   ├── blocked.html
-│   ├── onboarding.html
-│   ├── popup.html
-│   ├── dashboard.html
-│   ├── icons/
-│   ├── fonts/
-│   └── assets/
-├── public/
-│   ├── icons/                # High-res icons (16, 32, 48, 128)
-│   ├── fonts/                # Local bundled Plus Jakarta Sans & JetBrains Mono
-│   └── manifest.json
-├── src/
-│   ├── background/
-│   │   └── background.ts     # Service worker: DNR rules, alarms, tab redirects
-│   ├── components/
-│   │   ├── CodePanel.tsx     # Window dots, line numbers, syntax highlighting
-│   │   ├── OptionTile.tsx    # 2x2 tactile tiles with keyboard shortcuts (1-4, Enter)
-│   │   ├── HotspotDiagram.tsx# Interactive SVG diagrams with tap targets
-│   │   ├── VisualDiagram.tsx # SVG visualizations for diagrams
-│   │   ├── ExplanationSheet.tsx # Slide-up explanations
-│   │   ├── StreakFlame.tsx   # Glowing flame streak counter
-│   │   ├── TimerRing.tsx     # Circular countdown ring
-│   │   ├── LevelCard.tsx     # Level selector
-│   │   └── Confetti.ts       # Canvas confetti celebrations
-│   ├── engine/
-│   │   ├── adaptive.ts       # Level mixes & difficulty boundaries
-│   │   ├── scoring.ts        # Option shuffling & evaluation
-│   │   └── selectQuestion.ts # Topic weighting & spaced repetition
-│   ├── data/
-│   │   └── questions.json    # Verified DSA question bank
-│   ├── lib/
-│   │   ├── storage.ts        # Typed chrome.storage wrapper & fallback
-│   │   ├── sites.ts          # Preset websites & host permission handler
-│   │   ├── SoundEffects.ts   # Web Audio API offline sound synthesizer
-│   │   └── shareCard.ts      # Canvas PNG social share card generator
-│   ├── pages/
-│   │   ├── blocked/          # Core quiz screen
-│   │   ├── onboarding/       # 4-step first run wizard
-│   │   ├── popup/            # Quick toolbar controls
-│   │   └── dashboard/        # Heatmap, mastery bars, settings
-│   └── styles/
-│       └── tokens.css        # Design tokens, keyframes, typography
-├── scripts/
-│   ├── generate-icons.js     # Native PNG icon builder
-│   └── package.js            # Zip packager
-├── solve-to-scroll.zip       # Packaged extension archive
-├── package.json
-├── tsconfig.json
-└── vite.config.ts
+  ┌───────────────────┐       ┌───────────────────────┐       ┌───────────────────┐
+  │   1. Attempt to   │  ──▶  │   2. Solve 1-3 Quick  │  ──▶  │   3. Enjoy Timed  │
+  │   Open Instagram  │       │     DSA Questions     │       │    Scroll Session │
+  └───────────────────┘       └───────────────────────┘       └───────────────────┘
+                                   • Hotspot taps                  • 10:00 Timer Ring
+                                   • Code output                   • Confetti Burst
+                                   • Complexity / MCQ              • Auto-relocks on expiry
 ```
 
 ---
 
-## 📦 How to Install in Chrome
+## ✨ Features That Set It Apart
 
-1. Open Google Chrome.
-2. In the URL bar, navigate to:
+### 🎨 1. Dark, Glowing, Tactile Interface
+- Designed with a bespoke **midnight palette** (`#0A0A12`), glowing purple-pink-amber gradient accents, and subtle animated background blobs.
+- **Synthesized Web Audio**: Crisp, tactile audio chimes (built directly with Web Audio API—no audio files, 100% offline).
+- **Keyboard-First Navigation**: Press `1`–`4` to pick options and `Enter` to submit.
+
+### 🧩 2. Six High-Yield Question Formats
+No dry LeetCode text dumps. Every question tests fundamental computer science intuition:
+1. **Interactive Hotspot Diagrams**: Tap directly on an SVG node or pointer (e.g., tap the broken pointer in a linked list deletion or the node violating BST properties).
+2. **Code Output**: Syntax-highlighted code blocks with line numbers in a dark macOS window.
+3. **Spot the Bug**: Identify boundary errors and missing pointer updates.
+4. **Time & Space Complexity**: Big-O analysis and Master Theorem evaluations.
+5. **Visual Diagrams**: Tree Lowest Common Ancestor (LCA) and graph connectivity questions.
+6. **Multiple Choice (MCQ)**: Core conceptual fundamentals.
+
+### 🧠 3. Smart Adaptive Difficulty Engine
+- **Profile Baselines**: Pick **Beginner**, **Intermediate**, or **Expert** at onboarding (with an optional 3-question placement check).
+- **Dynamic Tuning**: 2 correct answers in a row levels a topic up; 1 wrong answer moves it down.
+- **Topic Weighting**: Spends more time on your weakest areas.
+- **Spaced Repetition (`wrongQueue`)**: Re-surfaces missed questions until mastered.
+
+### 🛡️ 4. 100% Private & Fully Offline
+- Zero external network requests.
+- No accounts, no sign-ups, and no analytics tracking.
+- Everything runs strictly within `chrome.storage.local` and your browser's background service worker.
+
+---
+
+## 📊 Analytics & Social Share Card
+
+- **16-Week GitHub Heatmap**: Visualizes your daily solved question count.
+- **Topic Mastery Bars**: Tracks accuracy and current difficulty level across Arrays, Linked Lists, Trees, Stacks, Queues, Sorting, and Big-O.
+- **One-Click PNG Share Card**: Automatically generates a high-resolution 1200×630 shareable graphic directly on an HTML5 canvas to showcase your streak on LinkedIn or X/Twitter.
+
+---
+
+## 🚀 Quickstart Installation (Load in 30 Seconds)
+
+1. Clone or download this repository:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/solve-to-scroll.git
+   ```
+2. Open **Google Chrome** and navigate to:
    ```
    chrome://extensions/
    ```
-3. Enable **Developer mode** using the toggle switch in the top-right corner.
-4. Click **Load unpacked** in the top-left corner.
-5. Select the **`dist`** folder inside:
+3. Enable **Developer mode** (toggle in the upper-right corner).
+4. Click **Load unpacked** (top-left button).
+5. Select the **`dist`** folder inside this repository:
    ```
-   C:\Users\Dhiti\.gemini\antigravity\scratch\solve-to-scroll\dist
+   Solve-to-Scroll/dist
    ```
-   *(Alternatively, unzip `solve-to-scroll.zip` into any folder and load that folder)*.
-6. The extension is now active! The onboarding setup page will automatically open on first install.
+6. The onboarding setup will automatically launch. Set your preferences and start scrolling smarter!
 
 ---
 
-## 🎮 How to Test
+## 🛠️ Tech Stack
 
-1. **Onboarding**:
-   - Walk through the 4 steps: Welcome → Focus Topics → Level & 3-Question Placement → Blocked Sites & Timer.
-2. **Try Navigating to a Blocked Site**:
-   - Open a new tab and go to `https://www.instagram.com` or `https://www.youtube.com`.
-   - You will immediately land on `blocked.html` with your DSA question challenge!
-3. **Solve the Question**:
-   - Use your mouse or press `1`, `2`, `3`, or `4` on your keyboard, then press `Enter`.
-   - For hotspot questions, tap the erroneous node or broken pointer.
-   - For code output, review the highlighted snippet in the dark macOS code window.
-4. **Unlock & Scroll**:
-   - When solved, enjoy the confetti and click **"Take me to {Site}"**.
-   - Your site is now unlocked for your chosen duration (e.g. 10 minutes).
-5. **Popup & Dashboard**:
-   - Click the extension icon in Chrome's toolbar to see remaining unlock time or lock now.
-   - Click **"Open Dashboard"** to view your GitHub-style activity heatmap, mastery bars, weak spots, and download your canvas share card.
+| Layer | Technologies |
+| :--- | :--- |
+| **Extension Standard** | Chrome Manifest V3 (MV3), Service Worker |
+| **Traffic Interception** | `chrome.declarativeNetRequest` dynamic rules & `chrome.alarms` |
+| **Frontend Framework** | React 18, TypeScript, Tailwind CSS |
+| **Build Tooling** | Vite (Multi-page HTML entry architecture) |
+| **Visuals & Polish** | Lucide Icons, Canvas Confetti, JetBrains Mono & Plus Jakarta Sans |
+| **Sound System** | Pure Web Audio API Synthesizer (0 external audio dependencies) |
 
 ---
 
-## 💡 Adding More Questions
-All questions live in [`src/data/questions.json`](src/data/questions.json). You can add more questions at any time without touching TypeScript code:
+## 📝 Adding New Questions
+
+All questions are decoupled from code and stored in [`src/data/questions.json`](src/data/questions.json). To add a new question:
 
 ```json
 {
-  "id": "arr-100",
+  "id": "arr-101",
   "topic": "arrays",
   "level": "intermediate",
   "difficulty": "medium",
   "type": "code_output",
-  "prompt": "What is the output of this operation?",
+  "prompt": "What does this snippet print?",
   "language": "python",
   "code": "nums = [1, 2, 3]\nprint(nums * 2)",
   "options": ["[2, 4, 6]", "[1, 2, 3, 1, 2, 3]", "Error", "[[1, 2, 3], [1, 2, 3]]"],
   "answer": 1,
-  "explanation": "Multiplying a Python list by an integer concatenates it that many times.",
-  "tags": ["python", "basics"]
+  "explanation": "Multiplying a list by an integer duplicates its elements.",
+  "tags": ["python", "arrays"]
 }
 ```
 
-Then simply rebuild with `npm run build`.
+Run `npm run build` to package the updated question bank.
+
+---
+
+<p align="center">
+  Made with 💜 to help engineers master algorithms and conquer screen time.
+</p>
