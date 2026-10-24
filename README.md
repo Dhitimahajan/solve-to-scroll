@@ -1,4 +1,4 @@
-# ⚡ Solve-to-Scroll
+#  Solve-to-Scroll
 <p align="center">
   <strong>Earn your scroll. Transform doomscrolling into daily algorithmic mastery.</strong>
 </p>
@@ -13,18 +13,18 @@
 
 ---
 
-## 💡 The Premise
+##  The Premise
 
 Every time you open **Instagram**, **YouTube**, **X/Twitter**, or **Reddit**, you lose 30+ minutes down an algorithmic rabbit hole.
 
 **Solve-to-Scroll breaks the dopamine loop:**
 Instead of brute-force willpower, it places a lightweight, beautifully designed gatekeeper in front of distracting sites. To unlock **10 minutes** of browsing, you must solve **1 to 3 quick DSA concept questions**.
 
-> ⏱️ **Each unlock takes ~20 seconds.** You learn something new, protect your focus, and build an unbreakable daily streak.
+>  **Each unlock takes ~20 seconds.** You learn something new, protect your focus, and build an unbreakable daily streak.
 
 ---
 
-## 🔄 The 3-Step Core Loop
+##  The 3-Step Core Loop
 
 ```
   ┌───────────────────┐       ┌───────────────────────┐       ┌───────────────────┐
@@ -38,14 +38,14 @@ Instead of brute-force willpower, it places a lightweight, beautifully designed 
 
 ---
 
-## ✨ Features That Set It Apart
+##  Features That Set It Apart
 
-### 🎨 1. Dark, Glowing, Tactile Interface
+###  1. Dark, Glowing, Tactile Interface
 - Designed with a bespoke **midnight palette** (`#0A0A12`), glowing purple-pink-amber gradient accents, and subtle animated background blobs.
 - **Synthesized Web Audio**: Crisp, tactile audio chimes (built directly with Web Audio API—no audio files, 100% offline).
 - **Keyboard-First Navigation**: Press `1`–`4` to pick options and `Enter` to submit.
 
-### 🧩 2. Six High-Yield Question Formats
+###  2. Six High-Yield Question Formats
 No dry LeetCode text dumps. Every question tests fundamental computer science intuition:
 1. **Interactive Hotspot Diagrams**: Tap directly on an SVG node or pointer (e.g., tap the broken pointer in a linked list deletion or the node violating BST properties).
 2. **Code Output**: Syntax-highlighted code blocks with line numbers in a dark macOS window.
@@ -54,20 +54,20 @@ No dry LeetCode text dumps. Every question tests fundamental computer science in
 5. **Visual Diagrams**: Tree Lowest Common Ancestor (LCA) and graph connectivity questions.
 6. **Multiple Choice (MCQ)**: Core conceptual fundamentals.
 
-### 🧠 3. Smart Adaptive Difficulty Engine
+###  3. Smart Adaptive Difficulty Engine
 - **Profile Baselines**: Pick **Beginner**, **Intermediate**, or **Expert** at onboarding (with an optional 3-question placement check).
 - **Dynamic Tuning**: 2 correct answers in a row levels a topic up; 1 wrong answer moves it down.
 - **Topic Weighting**: Spends more time on your weakest areas.
 - **Spaced Repetition (`wrongQueue`)**: Re-surfaces missed questions until mastered.
 
-### 🛡️ 4. 100% Private & Fully Offline
+###  4. 100% Private & Fully Offline
 - Zero external network requests.
 - No accounts, no sign-ups, and no analytics tracking.
 - Everything runs strictly within `chrome.storage.local` and your browser's background service worker.
 
 ---
 
-## 📊 Analytics & Social Share Card
+##  Analytics & Social Share Card
 
 - **16-Week GitHub Heatmap**: Visualizes your daily solved question count.
 - **Topic Mastery Bars**: Tracks accuracy and current difficulty level across Arrays, Linked Lists, Trees, Stacks, Queues, Sorting, and Big-O.
@@ -75,7 +75,7 @@ No dry LeetCode text dumps. Every question tests fundamental computer science in
 
 ---
 
-## 🚀 Quickstart Installation (Load in 30 Seconds)
+##  Quickstart Installation (Load in 30 Seconds)
 
 1. Clone or download this repository:
    ```bash
@@ -95,7 +95,7 @@ No dry LeetCode text dumps. Every question tests fundamental computer science in
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Layer | Technologies |
 | :--- | :--- |
@@ -108,7 +108,7 @@ No dry LeetCode text dumps. Every question tests fundamental computer science in
 
 ---
 
-## 📝 Adding New Questions
+##  Adding New Questions
 
 All questions are decoupled from code and stored in [`src/data/questions.json`](src/data/questions.json). To add a new question:
 
@@ -134,5 +134,5 @@ Run `npm run build` to package the updated question bank.
 ---
 
 <p align="center">
-  Made with 💜 to help engineers master algorithms and conquer screen time.
+  Made with  to help engineers master algorithms and conquer screen time.
 </p>
